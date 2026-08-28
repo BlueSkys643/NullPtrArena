@@ -7,7 +7,8 @@
     <h1>Problem Hello</h1>
     <p>Write a program that prints "Hello World!"</p>
 
-    <form>
+    <form method="post">
+        {% csrf_token %}
         <textarea 
             name="editor"
             id="editor_el"
@@ -22,5 +23,7 @@
         </select>
         <button>Submit Code</button>
     </form>
+    <h2>Output</h2>
+    <pre id="output"></pre>
 </body>
 </html>
