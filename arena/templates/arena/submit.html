@@ -17,13 +17,13 @@
             placeholder="print('Hello World!')"></textarea><br />
         <label for="language">Language: </label>
         <select name="language">
-            <option>Python</option>
-            <option>c++</option>
-            <option>Java</option>
+            <option value="python">Python</option>
+            <option value="cpp">c++</option>
+            <option value="java">Java</option>
         </select>
         <button>Submit Code</button>
     </form>
     <h2>Output</h2>
-    <pre id="output"></pre>
+    <pre id="output">{{ output }}</pre>
 </body>
 </html>
