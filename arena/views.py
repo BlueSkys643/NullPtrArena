@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
 def run_code(code, lang):
+    print(code)
+    print(lang)
     return "runCode function not yet complete."
 
 # Create your views here.
