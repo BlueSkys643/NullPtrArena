@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NullPtrArena</title>
+</head>
+<body>
+    <h1>Problem Hello</h1>
+    <p>Write a program that prints "Hello World!"</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <textarea 
+            name="editor"
+            id="editor_el"
+            rows="12"
+            cols="80"
+            placeholder="print('Hello World!')"></textarea><br />
+        <label for="language">Language: </label>
+        <select name="language">
+            <option value="python">Python</option>
+            <option value="cpp">c++</option>
+            <option value="java">Java</option>
+        </select>
+        <button>Submit Code</button>
+    </form>
+    <h2>Output</h2>
+    <pre id="output">{{ output }}</pre>
+</body>
+</html>
