@@ -5,8 +5,7 @@ NullPointerArena is a student project from CalPoly Humboldt that will be a code 
 
 ## tech stack (subject to change)
 - python
-- FastAPI
-- React
+- django
 - PostgreSQL
 - redis queue
 
