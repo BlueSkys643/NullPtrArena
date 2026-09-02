@@ -11,8 +11,8 @@ def run_code(code, lang, test_file):
             tests = list(csv.reader(file))
 
         for test_input, expected_output in tests:
-            print("test in:  ", test_input)
-            print("expected: ", expected_output)
+            #print("test in:  ", test_input)
+            #print("expected: ", expected_output)
         
             container = client.containers.create(
                 "python:3.12-slim",
@@ -43,10 +43,10 @@ def run_code(code, lang, test_file):
 
                 output = container.logs().decode()
 
-                print("Output:", output)
+                #print("Output:", output)
 
                 if (int(output) != int(expected_output)):
-                    print("AAA: ", test_input)
+                    #print("AAA: ", test_input)
                     passText = "Failed"
 
             finally:
@@ -67,3 +67,6 @@ def submit(request):
         result = run_code(code, language, "arena/problems/test-double.csv")
 
     return render(request, "arena/submit.html", {"output": result})
+
+def home(request):
+    return render(request, "arena/home.html")
