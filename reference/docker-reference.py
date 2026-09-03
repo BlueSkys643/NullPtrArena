@@ -23,3 +23,16 @@ print("Container Times")
 print(output.decode())
 print("System Time")
 print(datetime.now().strftime("%H:%M:%S"))
+
+"""
+print("Hello World!")
+
+for x in range(5):
+    print(x)
+
+import time
+from datetime import datetime
+
+print(datetime.now().strftime("%H:%M:%S"), flush=True)
+
+"""

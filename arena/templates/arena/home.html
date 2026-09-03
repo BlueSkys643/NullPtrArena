@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NullPtrArena - Home</title>
+    <link rel="stylesheet" href="{% static 'arena/style.css' %}" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="terminal-symbol">&gt;_</span>
+            <span>NULL_PTR_ARENA</span>
+        </div>
+        <nav>
+            <a href="#">EXPLORE</a>
+            <a href="#">CREATE</a>
+            <a href="#">ACCOUNT</a>
+        </nav>
+    </header>
+    <div class="layout">
+        <aside class="sidebar">
+        <div class="sidebar-title">PROBLEM SETS</div>
+            <ul id="problemlistA">
+                <li class="list-prob"><a href="#">Test Set</a></li>
+                <li class="list-prob"><a href="#">ICPC D1 Practice</a></li>
+                <li class="list-prob"><a href="#">ICPC D2 Practice</a></li>
+                <li class="list-prob"><a href="#">Empty Set</a></li>
+                <li class="list-prob"><a href="#">Simple Structures</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <section class="hero">
+                <p class="system-message">SYSTEM READY</p>
+                
+                <h1 class="hero-text">NullPtrArena</h1>
+                <p class="hero-text">
+                    A code problem solving and testing web application built using django.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#">EXPLORE PROBLEMS</a>
+                    <a href="#">CREATE PROBLEMS</a>
+                    <a href="#">SANDBOX</a>
+                </div>
+
+            </section>
+            <section class="problems">
+                <h2>PROBLEMS</h2>
+                <div class="problem-list">
+                    <article class="problem">
+                        <span class="problem-id">001</span>
+                        <span class="problem-name">PRINT HELLO</span>
+                        <span class="problem-diff">EASY</span>
+                    </article>
+                    <article class="problem">
+                        <span class="problem-id">002</span>
+                        <span class="problem-name">DOUBLE INPUT</span>
+                        <span class="problem-diff">EASY</span>
+                    </article>
+                    <article class="problem">
+                        <span class="problem-id">003</span>
+                        <span class="problem-name">AVERAGE VALUE</span>
+                        <span class="problem-diff">MEDIUM</span>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div class="foot-section">
+            <h3>SUPPORT</h3>
+            <a href="#">Documentation</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="foot-section">
+            <h3>NAVIGATION</h3>
+            <a href="#">Problem Sets</a>
+            <a href="#">Account</a>
+            <a href="#">Submissions</a>
+        </div>
+        <div class="foot-section">
+            <h3>LEGAL</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+        <div class="foot-bottom">
+            NULL POINTER ARENA 2026
+        </div>
+    </footer>
+</body>
