@@ -98,7 +98,7 @@ body {
     padding-bottom: 12px;
     margin-bottom: 16px;
     border-bottom: 1px solid #4a4c40;
-    text-shadow: 0 0 2px #ebbe99;
+    text-shadow: 0 0 6px rgba(210, 190, 166, 0.5);
 }
 
 .sidebar ul {
@@ -150,6 +150,10 @@ body {
     border: 1px solid #4d5042;
     border-left: 4px solid #789b68;
     box-shadow: 5px 5px 0 #090909;
+    text-shadow: 0 0 8px rgba(122, 240, 122, 0.5);
+}
+.hero-text {
+    text-shadow: 0 0 8px rgba(122, 240, 122, 0.5);
 }
 .hero-buttons {
     display: flex;
@@ -180,10 +184,12 @@ body {
     color: #d8d3b9;
     font-size: clamp(36px, 5vw, 64px);
     letter-spacing: 5px;
+    text-shadow: 0 0 8px rgba(122, 240, 122, 0.5);
 }
 .hero p {
     color: #aaa995;
     line-height: 1.7;
+    text-shadow: 0 0 8px rgba(122, 240, 122, 0.5);
 }
 
 .problems {
