@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "arena",
 ]
 
+AUTH_USER_MODEL = "arena.User"
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
