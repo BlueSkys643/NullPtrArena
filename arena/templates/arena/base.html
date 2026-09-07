@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}NullPtrArena{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'arena/style.css' %}">
+</head>
+
+<body>
+
+    {% include "arena/partials/topbar.html" %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include "arena/partials/footer.html" %}
+
+</body>
+</html>
