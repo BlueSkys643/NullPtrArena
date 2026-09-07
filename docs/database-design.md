@@ -11,11 +11,16 @@ the database will contain code problems and a limited amount of user submissions
 
 ## 3. Entities
 ### User
-- id
+- uuid
 - username
 - email
 - profile pic
 - bio
+
+### ProblemSet
+- setid
+- title
+- description
 
 ### Problem
 - id
@@ -24,23 +29,20 @@ the database will contain code problems and a limited amount of user submissions
 - test file
 
 ### Submission
-- PK userid
-- PK problemid
+- PK FK userid
+- PK FK problemid
 - PK submission number
 - pass/fail
 - code file
 
-### Collection
-- collection name
-- collection id
-
-### Collection problem
-- PK collection id
-- PK problem id
-
 ## 4. Relationships
-users create submissions to problems
-a collection has many problems it contains as collection problems
+every problem has one and only one author 
+every problem set has one and only one creator 
+every problem belongs to one and only one created set 
+every submission has one and only one problem it is for and one and only one author 
+users can exist without creating problems, sets, or submissions 
+a problem set can have many problems or no problems 
+users can create multiple submissions but only the 3 most recent submissions and single most recent correct submission are saved for each problem
 
 ## 5. Schema
 
