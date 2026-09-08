@@ -1,0 +1,6 @@
+user accounts implemented
+login page
+sign up page
+regular users
+admin users
+logout function
