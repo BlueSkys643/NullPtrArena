@@ -5,19 +5,16 @@
     </div>
 
     <ul id="problemlistA">
-
-        
+        {% for problem_set in problem_sets %}
             <li class="list-prob">
                 <a href="#">
-                    problem
+                    {{ problem_set.name }}
                 </a>
             </li>
-        
+        {% empty %}
             <li class="list-prob">
                 No problem sets available.
             </li>
-        
-
+        {% endfor %}
     </ul>
-
 </aside>

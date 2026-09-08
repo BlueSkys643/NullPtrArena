@@ -8,7 +8,7 @@ class User(AbstractUser):
 
 
 class ProblemSet(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -18,7 +18,7 @@ class ProblemSet(models.Model):
     description = models.TextField(max_length=300)
 
 class Problem(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     problem_set = models.ForeignKey(
         ProblemSet,
         on_delete=models.CASCADE,
@@ -31,6 +31,7 @@ class Problem(models.Model):
     )
     name = models.CharField(max_length=64)
     description = models.TextField(max_length=300)
+    difficulty = models.CharField(max_length=12)
 
 class Submission(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

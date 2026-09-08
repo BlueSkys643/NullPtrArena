@@ -1,0 +1,20 @@
+<section class="problems">
+    <h2>PROBLEMS</h2>
+    <div class="problem_list">
+        {% for prob in problems|slice:":6" %}
+            <article class="problem">
+                <span class="problem-id">
+                    {{ prob.id }}
+                </span>
+                <span class="problem-name">
+                    {{ prob.name }}
+                </span>
+                <span class="problem-diff">
+                    {{ prob.difficulty }}
+                </span>
+            </article>
+        {% empty %}
+            <p>No problems available</p>
+        {% endfor %}
+    </div>
+</section>

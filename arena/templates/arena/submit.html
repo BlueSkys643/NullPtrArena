@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>NullPtrArena - Problem</title>
-</head>
-<body>
+
+{% extends "arena/base.html" %}
+
+{% block title %}
+    NullPtrArena - Submit
+{% endblock %}
+
+{% block content %}
+
+<div>
     <h1>Double Input</h1>
     <p>Write a program that accepts an integer as input and outputs the double of that integer.</p>
-
+    <br />
     <form method="post">
         {% csrf_token %}
         <textarea 
@@ -23,7 +27,8 @@
         </select>
         <button>Submit Code</button>
     </form>
+    <br />
     <h2>Output</h2>
     <pre id="output">{{ output }}</pre>
-</body>
-</html>
+</div>
+{% endblock %}
