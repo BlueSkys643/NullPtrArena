@@ -8,26 +8,29 @@
 
 <div class="layout">
 
+{% if user.is_authenticated %}
+<main class="content">
+    <h1>Account Page</h1>
+</main>
+{% else %}
     <main class="login-main">
         <div class="login-box">
             <div class="brand">
             <span class="terminal-symbol">&gt;_</span>
             <span>LOGIN</span>
             </div>
-            <form method="POST" action="{% url 'home' %}">
+            <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="form-control">
-                    <label for="emailInput1" class="form-label">
-                        Email Address
+                    <label for="userInput1" class="form-label">
+                        Username
                     </label>
-                    <input type="email"  
+                    <input type="text"  
                            class="form-input" 
-                           id="emailInput1" 
-                           aria-describedby="email-help" 
+                           id="userInput1" 
+                           placeholder="username"
+                           name="username"
                            required="required" />
-                    <div id="email-help" class="form-text">
-                        We'll never share your email with anyone else
-                    </div>
                 </div>
 
                 <div class="form-control">
@@ -36,12 +39,10 @@
                     </label>
                     <input type="password"  
                            class="form-input" 
-                           id="passInput1" 
-                           aria-describedby="pass-help"
+                           id="passInput1"
+                           name="password" 
+                           placeholder="password"
                            required="required" />
-                    <div id="pass-help" class="form-text">
-                        secured by Django
-                    </div>
                 </div>
 
                 <button type="submit" class="login-button">LOGIN</button>
@@ -50,6 +51,6 @@
         </div>
     </main>
 
+{% endif %}
 </div>
-
 {% endblock %}

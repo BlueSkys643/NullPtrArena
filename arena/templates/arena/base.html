@@ -5,11 +5,21 @@
 <head>
     <title>{% block title %}NullPtrArena{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'arena/style.css' %}">
+    <script src="{% static 'arena/main.js' %}" defer></script>
 </head>
 
 <body>
 
     {% include "arena/partials/topbar.html" %}
+
+    {% if messages %}
+      {% for message in messages %}
+        <div id="notice" class="notice">
+          {{ message }}
+          <button type="button" onclick="dismissNotice()">×</button>
+        </div>
+      {% endfor %}
+    {% endif %}
 
     {% block content %}
     {% endblock %}
