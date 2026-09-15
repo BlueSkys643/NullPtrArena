@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 import docker
 import csv
 
@@ -71,5 +73,8 @@ def submit(request):
 def home(request):
     return render(request, "arena/home.html")
 
-def login(request):
+def login_user(request):
     return render(request, "arena/login.html")
+
+def logout_user(request):
+    pass
