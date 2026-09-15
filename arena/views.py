@@ -70,3 +70,6 @@ def submit(request):
 
 def home(request):
     return render(request, "arena/home.html")
+
+def login(request):
+    return render(request, "arena/login.html")
