@@ -9,6 +9,11 @@
     <nav>
         <a href="#">EXPLORE</a>
         <a href="#">CREATE</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">LOGOUT</a>
+        {% else %}
+        <a href="{% url 'login' %}">LOGIN</a>
+        {% endif %}
         <a href="{% url 'login' %}">ACCOUNT</a>
     </nav>
 </header>

@@ -1,6 +1,6 @@
-user accounts implemented
-login page
+user accounts     implemented
+login page        implemented
 sign up page
 regular users
 admin users
-logout function
+logout function   implemented

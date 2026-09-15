@@ -88,4 +88,6 @@ def login_user(request):
     return render(request, "arena/login.html")
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request, "You have been logged out")
+    return redirect('home')
