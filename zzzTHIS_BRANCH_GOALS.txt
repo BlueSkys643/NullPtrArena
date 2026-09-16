@@ -1,7 +1,0 @@
-user accounts               implemented
-login page                  implemented
-sign up page
-regular users               implemented
-admin users                 in panel
-logout function             implemented
-admin panel user controls   implemented
