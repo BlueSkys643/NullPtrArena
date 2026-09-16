@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 import docker
 import csv
 
@@ -36,7 +38,7 @@ def run_code(code, lang, test_file):
             try:
                 container.start()
                 sock = container.attach_socket(params={"stdin": 1, "stream": 1})
-                sock._sock.sendall(test_input.encode())
+                sock._sock.sendall((test_input + '\n').encode())
                 sock._sock.shutdown(1)  # Send EOF
 
                 result = container.wait()
@@ -45,7 +47,7 @@ def run_code(code, lang, test_file):
 
                 #print("Output:", output)
 
-                if (int(output) != int(expected_output)):
+                if (int(output.strip()) != int(expected_output.strip())):
                     #print("AAA: ", test_input)
                     passText = "Failed"
 
@@ -64,9 +66,28 @@ def submit(request):
         code = request.POST["editor"]
         language = request.POST["language"]
         # run code here
-        result = run_code(code, language, "arena/problems/test-double.csv")
+        result = run_code(code, language, "reference/test-double.csv")
 
     return render(request, "arena/submit.html", {"output": result})
 
 def home(request):
     return render(request, "arena/home.html")
+
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "You have successfully logged in!")
+            return redirect('login')
+        else:
+            messages.success(request, "There was an error logging in...")
+            return redirect('login')
+    return render(request, "arena/login.html")
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, "You have been logged out")
+    return redirect('home')

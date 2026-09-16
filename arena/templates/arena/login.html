@@ -1,0 +1,56 @@
+{% extends "arena/base.html" %}
+
+{% block title %}
+    NullPtrArena - Login
+{% endblock %}
+
+{% block content %}
+
+<div class="layout">
+
+{% if user.is_authenticated %}
+
+    {% include "arena/account.html" %}
+
+{% else %}
+    <main class="login-main">
+        <div class="login-box">
+            <div class="brand">
+            <span class="terminal-symbol">&gt;_</span>
+            <span>LOGIN</span>
+            </div>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-control">
+                    <label for="userInput1" class="form-label">
+                        Username
+                    </label>
+                    <input type="text"  
+                           class="form-input" 
+                           id="userInput1" 
+                           placeholder="username"
+                           name="username"
+                           required="required" />
+                </div>
+
+                <div class="form-control">
+                    <label for="passInput1" class="form-label">
+                        Password
+                    </label>
+                    <input type="password"  
+                           class="form-input" 
+                           id="passInput1"
+                           name="password" 
+                           placeholder="password"
+                           required="required" />
+                </div>
+
+                <button type="submit" class="login-button">LOGIN</button>
+
+            </form>
+        </div>
+    </main>
+
+{% endif %}
+</div>
+{% endblock %}
