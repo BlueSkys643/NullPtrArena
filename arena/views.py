@@ -38,7 +38,7 @@ def run_code(code, lang, test_file):
             try:
                 container.start()
                 sock = container.attach_socket(params={"stdin": 1, "stream": 1})
-                sock._sock.sendall(test_input.encode())
+                sock._sock.sendall((test_input + '\n').encode())
                 sock._sock.shutdown(1)  # Send EOF
 
                 result = container.wait()
@@ -47,7 +47,7 @@ def run_code(code, lang, test_file):
 
                 #print("Output:", output)
 
-                if (int(output) != int(expected_output)):
+                if (int(output.strip()) != int(expected_output.strip())):
                     #print("AAA: ", test_input)
                     passText = "Failed"
 
@@ -66,7 +66,7 @@ def submit(request):
         code = request.POST["editor"]
         language = request.POST["language"]
         # run code here
-        result = run_code(code, language, "arena/problems/test-double.csv")
+        result = run_code(code, language, "reference/test-double.csv")
 
     return render(request, "arena/submit.html", {"output": result})
 

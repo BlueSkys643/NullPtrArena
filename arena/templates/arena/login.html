@@ -9,9 +9,9 @@
 <div class="layout">
 
 {% if user.is_authenticated %}
-<main class="content">
-    <h1>Account Page</h1>
-</main>
+
+    {% include "arena/account.html" %}
+
 {% else %}
     <main class="login-main">
         <div class="login-box">

@@ -359,7 +359,14 @@ footer {
 .login-box .login-button:active {
     transform: translateY(1px);
 }
-
+.green-text-strong {
+    color:#2ea043;
+    font-weight: bold;
+}
+.red-text-strong {
+    font-weight: bold;
+    color:#922424;
+}
 body::after {
     content: "";
 
