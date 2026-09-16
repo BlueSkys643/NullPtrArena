@@ -31,9 +31,10 @@ class Problem(models.Model):
     )
     name = models.CharField(max_length=64)
     description = models.TextField(max_length=300)
-    difficulty = models.CharField(max_length=12)
+    difficulty = models.CharField(max_length=12, default='EASY')
     test_file = models.FileField(
-        upload_to="problem_tests/"
+        upload_to="problem_tests/",
+        default="problem_tests/default.csv",
     )
 """
 TestCase class might get implemented but if it does then no csv files for tests

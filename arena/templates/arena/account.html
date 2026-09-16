@@ -13,7 +13,7 @@
             <tbody>
                 {% for submit in submissions %}
                 <tr>
-                    <td>{{ submit.problem }}</td>
+                    <td>{{ submit.problem.name }}</td>
                     <td>
                         {% if submit.passed %}
                         <span class="green-text-strong">PASSED</span>
