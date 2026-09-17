@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import *
 import docker
 import csv
 
@@ -71,9 +72,20 @@ def submit(request):
     return render(request, "arena/submit.html", {"output": result})
 
 def home(request):
-    return render(request, "arena/home.html")
+    problem_sets = ProblemSet.objects.all()
+    problems = Problem.objects.all()
+    return render(request, "arena/home.html", {
+        "problem_sets": problem_sets,
+        "problems": problems,
+    })
 
 def login_user(request):
+    problem_sets = ProblemSet.objects.all()
+    if request.user.is_authenticated:
+        submissions = Submission.objects.filter(author=request.user)
+    else:
+        submissions = Submission.objects.none()
+
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -85,7 +97,10 @@ def login_user(request):
         else:
             messages.success(request, "There was an error logging in...")
             return redirect('login')
-    return render(request, "arena/login.html")
+    return render(request, "arena/login.html", {
+        "problem_sets": problem_sets,
+        "submissions": submissions,
+    })
 
 def logout_user(request):
     logout(request)
