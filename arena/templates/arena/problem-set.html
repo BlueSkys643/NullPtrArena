@@ -12,7 +12,7 @@
 
     <main class="content">
         <h2>{{ problem_set.name }}</h2>
-        {% if prooblems %}
+        {% if problems %}
         <table>
             <thead>
                 <tr><th>Problem</th><th>Difficulty</th><th>Completed</th></tr>
@@ -29,7 +29,7 @@
                 {% endfor %}
             </tbody>
         </table>
-
+        {% endif %}
     </main>
 
 </div>
