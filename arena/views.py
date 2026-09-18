@@ -106,3 +106,6 @@ def logout_user(request):
     logout(request)
     messages.success(request, "You have been logged out")
     return redirect('home')
+
+def problem_set(request):
+    return render(request, "arena/problem-set.html")
