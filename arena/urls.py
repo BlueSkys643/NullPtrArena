@@ -12,4 +12,5 @@ urlpatterns = [
         views.problem_set,
         name="problem_set",
     ),
+    path("explore/sets/", views.sets, name="sets"),
 ]

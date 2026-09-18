@@ -107,6 +107,13 @@ def logout_user(request):
     messages.success(request, "You have been logged out")
     return redirect('home')
 
+def sets(request):
+    problem_sets = ProblemSet.objects.all()
+    return render(request, "arena/sets.html", {
+        "problem_sets": problem_sets,
+    })
+
+
 def problem_set(request, id):
     problem_sets = ProblemSet.objects.all()
     problem_set = get_object_or_404(ProblemSet, id=id)

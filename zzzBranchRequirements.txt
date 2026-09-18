@@ -1,3 +1,4 @@
-[ ] create problem set page
-[ ] show all problem sets in page by name and author
+[x] create problem set page showing all problems in a set
+[x] create page showing all problem sets, linked by EXPLORE buttons
+[x] show all problem sets in page by name and author
 [ ] filter by author function
