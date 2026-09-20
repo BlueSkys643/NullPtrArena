@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import *
@@ -106,3 +106,20 @@ def logout_user(request):
     logout(request)
     messages.success(request, "You have been logged out")
     return redirect('home')
+
+def sets(request):
+    problem_sets = ProblemSet.objects.all()
+    return render(request, "arena/sets.html", {
+        "problem_sets": problem_sets,
+    })
+
+
+def problem_set(request, id):
+    problem_sets = ProblemSet.objects.all()
+    problem_set = get_object_or_404(ProblemSet, id=id)
+    problems = Problem.objects.filter(problem_set=id)
+    return render(request, "arena/problem-set.html", {
+        "problem_sets": problem_sets,
+        "problem_set": problem_set,
+        "problems": problems,
+    })

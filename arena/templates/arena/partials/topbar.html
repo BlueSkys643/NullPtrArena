@@ -7,7 +7,7 @@
     </a>
 
     <nav>
-        <a href="#">EXPLORE</a>
+        <a href="{% url 'sets' %}">EXPLORE</a>
         <a href="#">CREATE</a>
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">LOGOUT</a>

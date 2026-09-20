@@ -7,7 +7,7 @@
     <ul id="problemlistA">
         {% for problem_set in problem_sets %}
             <li class="list-prob">
-                <a href="#">
+                <a href="{% url 'problem_set' problem_set.id %}">
                     {{ problem_set.name }}
                 </a>
             </li>
