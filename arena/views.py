@@ -12,7 +12,6 @@ def submit(request):
         language = request.POST["language"]
         # run code here
         result = run_code(code, language, "reference/test-double.csv")
-
     return render(request, "arena/submit.html", {"output": result})
 
 def home(request):
@@ -57,7 +56,6 @@ def sets(request):
         "problem_sets": problem_sets,
     })
 
-
 def problem_set(request, id):
     problem_sets = ProblemSet.objects.all()
     problem_set = get_object_or_404(ProblemSet, id=id)
@@ -66,4 +64,18 @@ def problem_set(request, id):
         "problem_sets": problem_sets,
         "problem_set": problem_set,
         "problems": problems,
+    })
+
+def problem(request, id):
+    problem = get_object_or_404(Problem, id=id)
+    
+    result = "Nothing submitted yet"
+    if request.method == "POST":
+        code = request.POST["editor"]
+        language = request.POST["language"]
+        # run code here
+        result = run_code(code, language, "arena/"+str(problem.test_file))
+    return render(request, "arena/problem.html", {
+        "problem": problem,
+        "output": result,
     })
