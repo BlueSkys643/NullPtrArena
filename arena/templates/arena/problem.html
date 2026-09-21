@@ -1,0 +1,35 @@
+
+{% extends "arena/base.html" %}
+
+{% block title %}
+    NullPtrArena - {{ problem.name }}
+{% endblock %}
+
+{% block content %}
+
+<main class="prob-content">
+    <h1>{{ problem.name }}</h1>
+    <hr />
+    <p>{{ problem.description }}</p>
+    <br />
+    <form method="post">
+        {% csrf_token %}
+        <textarea 
+            name="editor"
+            id="editor_el"
+            rows="12"
+            cols="80"
+            placeholder="write your program here"></textarea><br />
+        <label for="language">Language: </label>
+        <select name="language">
+            <option value="python">Python</option>
+            <option value="cpp">c++</option>
+            <option value="java">Java</option>
+        </select>
+        <button>Submit Code</button>
+    </form>
+    <br />
+    <h2>Output</h2>
+    <pre id="output">{{ output }}</pre>
+</main>
+{% endblock %}

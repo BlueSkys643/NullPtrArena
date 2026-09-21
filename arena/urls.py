@@ -12,5 +12,10 @@ urlpatterns = [
         views.problem_set,
         name="problem_set",
     ),
+    path(
+        "problem/<int:id>/",
+        views.problem,
+        name="problem",
+    ),
     path("explore/sets/", views.sets, name="sets"),
 ]

@@ -234,6 +234,15 @@ body {
     letter-spacing: 1px;
 }
 
+.prob-content {
+    width: 75%;
+    margin: 1em auto;
+}
+#editor_el {
+    width:95%;
+    margin: 0 auto;
+}
+
 footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
