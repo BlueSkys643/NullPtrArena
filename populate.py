@@ -55,7 +55,7 @@ print("Creating problem sets...")
 set1 = ProblemSet.objects.create(
     author=admin,
     name="Admin Basics",
-    description="Basic programming problems created by the administrator."
+    description="Basic programming problems created by the administrator. Do these guided problems to learn the program."
 )
 
 set2 = ProblemSet.objects.create(

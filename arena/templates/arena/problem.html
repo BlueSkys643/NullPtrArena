@@ -10,7 +10,7 @@
 <main class="prob-content">
     <h1>{{ problem.name }}</h1>
     <hr />
-    <p>{{ problem.description }}</p>
+    <pre>{{ problem.description }}</pre>
     <br />
     <form method="post">
         {% csrf_token %}

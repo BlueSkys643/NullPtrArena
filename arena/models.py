@@ -30,7 +30,7 @@ class Problem(models.Model):
         related_name="problems",
     )
     name = models.CharField(max_length=64)
-    description = models.TextField(max_length=300)
+    description = models.TextField(max_length=9999)
     difficulty = models.CharField(max_length=12, default='EASY')
     test_file = models.FileField(
         upload_to="problem_tests/",
