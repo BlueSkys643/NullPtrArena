@@ -3,15 +3,23 @@
     <div class="problem_list">
         {% for prob in problems|slice:":6" %}
             <article class="problem">
-                <span class="problem-id">
-                    {{ prob.id }}
-                </span>
-                <span class="problem-name">
-                    {{ prob.name }}
-                </span>
-                <span class="problem-diff">
-                    {{ prob.difficulty }}
-                </span>
+                <div class="problem-header">
+                    <span class="problem-id">
+                        {{ prob.id }}
+                    </span>
+                    <h3 class="problem-name">
+                        {{ prob.name }}
+                    </h3>
+                    <span class="problem-diff">
+                        {{ prob.difficulty }}
+                    </span>
+                </div>
+                <p class="problem-description">{{ prob.description }}</p>
+                <div class="problem-action">
+                    <a href="{% url 'problem' prob.id %}" class="solve-button">
+                        SOLVE →
+                    </a>
+                </div>
             </article>
         {% empty %}
             <p>No problems available</p>
