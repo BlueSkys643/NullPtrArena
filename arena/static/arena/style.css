@@ -205,33 +205,303 @@ body {
 .problem-list {
     border-top: 1px solid #4d5042;
 }
+/* =========================
+   Problem List
+   ========================= */
+
 .problem {
-    display: grid;
-    grid-template-columns: 70px 1fr 100px;
-    align-items: center;
-    min-height: 58px;
-    padding: 0 16px;
-    background: #171a15;
-    border-bottom: 1px solid #383b31;
-    
-    text-shadow: 0 0 4px #789b68;
+    padding: 20px 16px;
+    border: 1px solid rgba(140, 160, 140, 0.18);
+    background: rgba(20, 24, 20, 0.45);
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
+
+.problem + .problem {
+    border-top: none;
+}
+
 .problem:hover {
-    background: #20241d;
-    text-shadow: 0 0 9px #ebbe99, 0 0 25px #ebbe99;
+    border-color: rgba(180, 190, 150, 0.3);
+    background: rgba(25, 30, 25, 0.65);
 }
+
+
+/* =========================
+   Problem Header
+   ========================= */
+
+.problem-header {
+    display: grid;
+    grid-template-columns: 55px 1fr auto;
+    align-items: center;
+    gap: 10px;
+}
+
 .problem-id {
-    color: #667d5b;
-    font-size: 13px;
+    color: #597d5c;
+    font-family: monospace;
 }
+
 .problem-name {
-    color: #c9c6ae;
+    margin: 0;
+
+    color: #d6d3b8;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: normal;
 }
+
 .problem-difficulty {
-    text-align: right;
-    color: #8f907e;
-    font-size: 11px;
-    letter-spacing: 1px;
+    color: #d6d3b8;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   Description
+   ========================= */
+
+.problem-description {
+    max-width: 850px;
+    margin: 14px 55px 18px;
+
+    color: #969b8e;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   Action
+   ========================= */
+
+.problem-action {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.solve-button {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border: 1px solid #596b52;
+
+    color: #b9bd91;
+    background: transparent;
+
+    font-family: monospace;
+    font-size: 0.85rem;
+    text-decoration: none;
+
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.solve-button:hover {
+    color: #e0dfbd;
+    border-color: #a8ad78;
+    background: rgba(150, 160, 100, 0.08);
+
+    animation: terminal-blink 0.9s steps(2, start) infinite;
+}
+
+
+/* =========================
+   Terminal-style hover blink
+   ========================= */
+
+@keyframes terminal-blink {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    50%,
+    95% {
+        opacity: 0.45;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   Reduced motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .solve-button:hover {
+        animation: none;
+    }
+}
+/* =========================
+   Problem Page / Code Editor
+   ========================= */
+
+.prob-content {
+    width: 88%;
+    margin: 0 auto;
+    padding: 30px 0 60px;
+}
+
+/* Problem title */
+.prob-content h1 {
+    margin: 0 0 20px;
+    font-size: 2rem;
+}
+
+/* Problem description */
+.prob-content p {
+    margin: 0 0 24px;
+    color: #d0d0d0;
+    line-height: 1.6;
+}
+
+/* Remove the awkward <br> spacing */
+.prob-content br {
+    display: none;
+}
+/* =========================
+   Language + Submit
+   ========================= */
+
+.prob-content form label {
+    color: #bfc8c2;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+}
+
+.prob-content select {
+    margin-left: 6px;
+    padding: 6px 28px 6px 9px;
+
+    background: #171d1a;
+    color: #e0e5e1;
+
+    border: 1px solid #3a4640;
+    border-radius: 4px;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+
+    cursor: pointer;
+}
+
+.prob-content select:focus {
+    outline: none;
+    border-color: #b8c7b8;
+}
+
+
+/* Submit button */
+.prob-content button {
+    margin-left: 8px;
+    padding: 6px 14px;
+
+    background: #202a24;
+    color: #dfe8e1;
+
+    border: 1px solid #536158;
+    border-radius: 4px;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.prob-content button:hover {
+    background: #2b3830;
+    border-color: #8d9d92;
+
+    box-shadow:
+        0 0 8px rgba(150, 170, 155, 0.15);
+}
+
+.prob-content button:active {
+    transform: translateY(1px);
+}
+/* =========================
+   Output
+   ========================= */
+
+.prob-content h2 {
+    margin: 35px 0 12px;
+
+    font-size: 1.3rem;
+}
+
+#output {
+    min-height: 80px;
+    margin: 0;
+    padding: 16px;
+
+    color: #c7d1ca;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    white-space: pre-wrap;
+    overflow-x: auto;
+
+}
+/* =========================
+   Code Editor
+   ========================= */
+
+#editor_el {
+    display: block;
+    width: 100%;
+    min-height: 320px;
+    box-sizing: border-box;
+    margin: 0 0 0.5em 0;
+
+    padding: 16px;
+
+    resize: vertical;
+
+    background: #111714;
+    color: #e6e6e6;
+
+    border: 1px solid #3a4640;
+    border-radius: 5px;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    outline: none;
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+#editor_el::placeholder {
+    color: #68736d;
+}
+
+#editor_el:focus {
+    border-color: #b8c7b8;
+
+    box-shadow:
+        0 0 0 1px rgba(184, 199, 184, 0.2),
+        inset 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
 footer {
