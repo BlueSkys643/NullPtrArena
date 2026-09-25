@@ -1,2 +1,0 @@
-[ ] create real problems for db
-[ ] test multiple inputs and multiple outputs successfully

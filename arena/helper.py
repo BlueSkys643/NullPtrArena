@@ -53,9 +53,9 @@ def run_code(code, lang, test_file):
             # Compare output as text
             if output != expected_output.strip():
                 print("--- output mismatch ---")
-                print(output)
-                print(expected_output.strip())
-                print(" ")
+                # print(output)
+                # print(expected_output.strip())
+                # print(" ")
                 pass_text = "FAILED"
 
         except Exception:
