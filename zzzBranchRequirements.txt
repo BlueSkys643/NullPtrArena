@@ -1,0 +1,5 @@
+[x] .env file created
+[ ] .env.example file created
+[x] .env in .gitignore excluding example file
+[ ] environment vars defined in .env
+[ ] implement environment vars in settings.py and other files as needed
